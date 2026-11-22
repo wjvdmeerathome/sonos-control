@@ -1,0 +1,47 @@
+﻿SONOS CONTROL — LICENTIEOVEREENKOMST / LICENSE AGREEMENT
+
+(English below)
+
+NEDERLANDS
+
+1. Geen relatie met Sonos
+Sonos Control is een onafhankelijk project. Het is niet gemaakt door, in opdracht van, in samenwerking met of goedgekeurd door Sonos, Inc. Sonos en de namen van Sonos-producten zijn handelsmerken van Sonos, Inc. Ze worden hier alleen gebruikt om aan te geven met welke apparaten deze software werkt.
+
+2. Licentie
+Deze software is open source en valt onder de MIT-licentie (zie hieronder). Je mag haar gratis gebruiken, kopiëren, aanpassen en verspreiden, zolang de copyrightvermelding en deze licentie erbij blijven.
+
+3. Wat de software doet
+Sonos Control praat rechtstreeks met Sonos-speakers op je eigen netwerk. Er gaan geen gegevens naar de maker of naar andere partijen, met één uitzondering: de app controleert bij GitHub of er een nieuwe versie is en downloadt die. Albumhoezen worden geladen vanaf de adressen die je speakers opgeven.
+
+4. Geen garantie en geen aansprakelijkheid
+De software wordt geleverd "zoals ze is", zonder enige garantie. De maker is niet aansprakelijk voor schade die voortkomt uit het gebruik ervan, waaronder storingen aan of instellingen van je Sonos-systeem (zoals volume, wachtrij, groepen, klank en wekkers). Gebruik is op eigen risico.
+
+Door op "Akkoord" te klikken ga je met deze voorwaarden akkoord.
+
+
+ENGLISH
+
+1. No affiliation with Sonos
+Sonos Control is an independent project. It is not made by, on behalf of, in cooperation with or endorsed by Sonos, Inc. Sonos and Sonos product names are trademarks of Sonos, Inc. They are used here only to describe which devices this software works with.
+
+2. License
+This software is open source under the MIT License (below). You may use, copy, modify and distribute it free of charge, provided the copyright notice and this license are kept.
+
+3. What the software does
+Sonos Control talks directly to Sonos speakers on your own network. No data is sent to the author or any other party, with one exception: the app checks GitHub for new versions and downloads them. Album art is loaded from the addresses your speakers provide.
+
+4. No warranty and no liability
+The software is provided "as is", without warranty of any kind. The author is not liable for any damage arising from its use, including malfunctions or settings of your Sonos system (such as volume, queue, groups, sound and alarms). Use at your own risk.
+
+By clicking "I Agree" you accept these terms.
+
+
+MIT LICENSE
+
+Copyright (c) 2026 wjvdmeer
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

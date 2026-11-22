@@ -311,3 +311,6 @@ input[type=range]::-moz-range-thumb { width: 14px; height: 14px; border: 0; bord
 .sys dt { color: var(--muted); }
 .sys dd { margin: 0; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
 a.link-btn { margin-left: 0; display: inline-block; }
+.disclaimer { color: var(--muted); font-size: 12px; line-height: 1.45; margin: 14px 0 0; }
+.disclaimer a { color: var(--muted); }
+.disclaimer a:hover { color: var(--text); }

@@ -64,6 +64,12 @@ npm run dist         # build the installer in dist/
 
 Web version only, without Electron: `node server.js` and open <http://localhost:8420> (or double-click `Sonos.cmd`; stop with `Stop.cmd`). Set `PORT` to change the port and `SONOS_DEBUG=1` to log incoming speaker events. To use it from a phone, start it with `HOST=0.0.0.0` and open `http://<pc-ip>:8420` — there is no password, so only do this on your own home network.
 
+## Disclaimer
+
+Sonos Control is an independent project. It is not made by, on behalf of, in cooperation with or endorsed by Sonos, Inc. Sonos and Sonos product names are trademarks of Sonos, Inc., used here only to describe which devices this software works with.
+
+The software is provided "as is", without warranty of any kind; use at your own risk. The installer shows the full license agreement ([build/license.txt](build/license.txt)).
+
 ## License
 
 MIT

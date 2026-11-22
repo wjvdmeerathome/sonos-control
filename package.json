@@ -1,6 +1,6 @@
 {
   "name": "sonos-control",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Control Sonos speakers from Windows, with mini player, tray icon and media keys",
   "main": "electron/main.js",
   "private": true,
@@ -36,7 +36,8 @@
       "perMachine": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
-      "shortcutName": "Sonos Control"
+      "shortcutName": "Sonos Control",
+      "license": "build/license.txt"
     },
     "publish": [
       {
