@@ -1,0 +1,56 @@
+{
+  "name": "sonos-control",
+  "version": "1.1.0",
+  "description": "Control Sonos speakers from Windows, with mini player, tray icon and media keys",
+  "main": "electron/main.js",
+  "private": true,
+  "author": "wjvdmeer",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "server": "node server.js",
+    "dist": "electron-builder --win nsis",
+    "smoke": "electron test/smoke.js"
+  },
+  "build": {
+    "appId": "nl.wjvdmeer.sonos-control",
+    "productName": "Sonos Control",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "electron/**/*",
+      "public/**/*",
+      "server.js",
+      "build/icon.png",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.png",
+      "artifactName": "Sonos-Control-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "Sonos Control"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "wjvdmeerathome",
+        "repo": "sonos-control"
+      }
+    ]
+  },
+  "devDependencies": {
+    "electron": "^44.10.2",
+    "electron-builder": "^26.15.3"
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.11"
+  }
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <title>Sonos mini-speler</title>
+  <link rel="stylesheet" href="/mini.css">
+</head>
+<body>
+  <div class="mini">
+    <button id="art" class="art no-drag" title="Sonos Control openen"><img id="art-img" alt=""><span id="art-ph"></span></button>
+    <div class="body">
+      <div class="top">
+        <div class="text">
+          <div id="title" class="title">Laden…</div>
+          <div id="sub" class="sub"></div>
+        </div>
+        <button id="open" class="btn small no-drag" title="Sonos Control openen" aria-label="Openen"></button>
+        <button id="close" class="btn small no-drag" title="Mini-speler verbergen" aria-label="Verbergen"></button>
+      </div>
+      <div class="row">
+        <button id="prev" class="btn no-drag" title="Vorige" aria-label="Vorige"></button>
+        <button id="play" class="btn play no-drag" title="Afspelen/pauzeren" aria-label="Afspelen"></button>
+        <button id="next" class="btn no-drag" title="Volgende" aria-label="Volgende"></button>
+        <button id="mute" class="btn small no-drag" title="Dempen" aria-label="Dempen"></button>
+        <input id="volume" class="no-drag" type="range" min="0" max="100" value="0" aria-label="Volume">
+      </div>
+    </div>
+  </div>
+  <div id="bar" class="bar"><i id="bar-fill"></i></div>
+  <script src="/icons.js"></script>
+  <script src="/mini.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sonos Control</title>
+  <meta name="theme-color" content="#111214">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><img src="/icon.svg" alt=""><span>Sonos Control</span></div>
+    <div id="status" class="status" hidden></div>
+    <button id="info-btn" class="icon-btn" title="Systeeminformatie" aria-label="Systeeminformatie"></button>
+    <button id="rescan" class="icon-btn" title="Opnieuw zoeken naar speakers" aria-label="Opnieuw zoeken"></button>
+    <button id="settings-btn" class="icon-btn" title="Instellingen" aria-label="Instellingen" hidden></button>
+  </header>
+
+  <div id="update-bar" class="update-bar" hidden>
+    <span id="update-text"></span>
+    <button id="update-install" class="btn-primary small">Nu herstarten</button>
+  </div>
+
+  <div class="layout">
+    <nav id="rooms" class="rooms" aria-label="Kamers"></nav>
+
+    <main id="main" class="main">
+      <div id="empty" class="empty">Speakers zoeken…</div>
+
+      <section id="player" class="player" hidden>
+        <div class="now">
+          <div class="art-wrap"><img id="art" alt=""><div id="art-ph" class="art-ph"></div></div>
+          <div class="info">
+            <div id="group-name" class="group-name"></div>
+            <h1 id="title"></h1>
+            <div id="artist" class="artist"></div>
+            <div id="album" class="album"></div>
+
+            <div class="progress" id="progress-wrap">
+              <span id="pos">0:00</span>
+              <input type="range" id="progress" min="0" max="100" value="0" step="1" aria-label="Positie">
+              <span id="dur">0:00</span>
+            </div>
+
+            <div class="controls">
+              <button id="shuffle" class="icon-btn toggle" title="Shuffle" aria-label="Shuffle"></button>
+              <button id="prev" class="icon-btn" title="Vorige" aria-label="Vorige"></button>
+              <button id="playpause" class="play-btn" title="Afspelen/pauzeren" aria-label="Afspelen"></button>
+              <button id="next" class="icon-btn" title="Volgende" aria-label="Volgende"></button>
+              <button id="repeat" class="icon-btn toggle" title="Herhalen" aria-label="Herhalen"></button>
+              <div class="sleep-wrap">
+                <button id="sleep" class="icon-btn toggle" title="Slaaptimer" aria-label="Slaaptimer" aria-haspopup="menu"></button>
+                <span id="sleep-badge" class="badge" hidden></span>
+                <div id="sleep-menu" class="menu" role="menu" hidden>
+                  <div class="menu-title">Slaaptimer</div>
+                  <button data-min="15" role="menuitem">15 minuten</button>
+                  <button data-min="30" role="menuitem">30 minuten</button>
+                  <button data-min="45" role="menuitem">45 minuten</button>
+                  <button data-min="60" role="menuitem">1 uur</button>
+                  <button data-min="90" role="menuitem">1,5 uur</button>
+                  <button data-min="0" role="menuitem" id="sleep-off">Uitzetten</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="volume main-vol">
+              <button id="mute" class="icon-btn" title="Dempen" aria-label="Dempen"></button>
+              <input type="range" id="volume" min="0" max="100" value="0" aria-label="Volume">
+              <span id="volume-val" class="vol-val">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panels">
+          <div class="card" id="members-card">
+            <h2>Volume per kamer</h2>
+            <div id="members"></div>
+          </div>
+          <div class="card" id="grouping-card">
+            <h2>Kamers groeperen</h2>
+            <div id="grouping" class="chips"></div>
+          </div>
+
+          <div class="card wide" id="queue-card">
+            <h2>Wachtrij <span id="queue-count" class="count"></span>
+              <button id="queue-clear" class="link-btn">wissen</button></h2>
+            <div id="queue" class="queue"></div>
+          </div>
+
+          <div class="card wide">
+            <h2>Sonos-favorieten <button id="fav-refresh" class="link-btn">vernieuwen</button></h2>
+            <div id="favorites" class="favs"></div>
+          </div>
+
+          <div class="card" id="eq-card">
+            <h2>Klank <select id="eq-room" class="select" aria-label="Kamer" hidden></select></h2>
+            <div id="eq"></div>
+          </div>
+
+          <div class="card" id="alarms-card">
+            <h2>Wekkers</h2>
+            <div id="alarms"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="settings" class="dialog">
+    <form method="dialog">
+      <h2>Instellingen</h2>
+      <label class="switch-row">
+        <span>Mini-speler bij minimaliseren</span>
+        <input type="checkbox" class="switch" data-setting="miniEnabled">
+      </label>
+      <label class="switch-row">
+        <span>Mediatoetsen bedienen Sonos<small>Play/pauze, volgende en vorige op je toetsenbord</small></span>
+        <input type="checkbox" class="switch" data-setting="mediaKeys">
+      </label>
+      <label class="switch-row">
+        <span>Volumetoetsen bedienen Sonos<small>Let op: ze regelen dan niet meer het volume van de pc</small></span>
+        <input type="checkbox" class="switch" data-setting="volumeKeys">
+      </label>
+      <label class="switch-row">
+        <span>Starten met Windows<small>Start verborgen in het systeemvak</small></span>
+        <input type="checkbox" class="switch" data-setting="autoStart">
+      </label>
+      <label class="switch-row">
+        <span>Sluiten naar systeemvak<small>Het kruisje verbergt de app; afsluiten via het icoon bij de klok</small></span>
+        <input type="checkbox" class="switch" data-setting="closeToTray">
+      </label>
+      <div class="about">
+        <div><strong>Sonos Control</strong> <span id="version"></span><div id="update-status" class="muted"></div></div>
+        <button type="button" id="check-updates" class="btn-secondary">Controleren op updates</button>
+      </div>
+      <div class="dialog-actions"><button class="btn-primary">Sluiten</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="sysinfo" class="dialog wide-dialog">
+    <form method="dialog">
+      <h2>Systeeminformatie <button type="button" id="sysinfo-refresh" class="link-btn">vernieuwen</button></h2>
+      <div id="sysinfo-body"></div>
+      <div class="dialog-actions"><button class="btn-primary">Sluiten</button></div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" hidden></div>
+  <script src="/icons.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
